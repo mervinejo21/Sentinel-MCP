@@ -1,69 +1,82 @@
-🛡️ Sentinel-MCP
+Here is the complete, raw Markdown code for your `README.md`. You can copy this entire block and paste it directly into your file.
 
-Autonomous AI Compliance Auditor
-Sentinel-MCP is a full-stack AI application that leverages the Model Context Protocol (MCP) to audit sensitive data. It uses a LangGraph ReAct agent to autonomously decide when to trigger security scans via a custom-built MCP server, providing real-time compliance feedback through a modern Next.js dashboard.
+````markdown
+# 🛡️ Sentinel-MCP
+### Autonomous AI Compliance Auditor
 
-🚀 Technical Stack
-AI Orchestration: LangGraph (Python)
+**Sentinel-MCP** is a full-stack AI application designed to demonstrate the power of the **Model Context Protocol (MCP)** in enterprise security. It features a **LangGraph** ReAct agent that autonomously audits user content by connecting to a custom-built MCP security server.
 
-Model: Mistral Large 3 (via Mistral AI API)
+## 🏗️ System Architecture
 
-Protocol: Model Context Protocol (MCP)
+- **Frontend:** Next.js 15 (App Router, Tailwind CSS v4, TypeScript)
+- **API Layer:** FastAPI (Python) serving as the bridge between Web and AI logic.
+- **AI Orchestration:** LangGraph implementing a ReAct (Reasoning + Acting) loop.
+- **Model:** Mistral Large 3 (via Mistral AI)
+- **Protocol:** Model Context Protocol (MCP) for secure tool-calling.
 
-Backend: FastAPI (Python)
+## 🛠️ Installation & Setup
 
-Frontend: Next.js 15 (Tailwind CSS v4, TypeScript)
+### 1. Prerequisites
+- **Python 3.12+** (Managed via [uv](https://github.com/astral-sh/uv))
+- **Node.js v20+**
+- **Mistral AI API Key**
 
-Environment: uv (Fast Python package manager)
+### 2. Backend Installation
+From the root directory (`Sentinel-MCP`):
 
-🏗️ Architecture
-Next.js UI: A high-end cybersecurity dashboard for user interaction.
-
-FastAPI Bridge: Handles requests and streams agentic thoughts to the frontend.
-
-LangGraph Agent: A ReAct agent that evaluates content and determines if the check_compliance tool is required.
-
-Sentinel MCP Server: A specialized server that implements local security rules and logic, exposed via the Model Context Protocol.
-
-🛠️ Installation & Setup
-1. Prerequisites
-Ensure you have uv installed (modern Python manager) and Node.js (v20+).
-
-2. Backend Setup
-PowerShell
-# Clone the repository
-git clone https://github.com/your-username/Sentinel-MCP.git
-cd Sentinel-MCP
-
-# Create environment and install dependencies
+```powershell
+# Install Python dependencies
 uv sync
 
-# Setup Environment Variables
-# Create a .env file and add:
-MISTRAL_API_KEY=your_api_key_here
-3. Frontend Setup
-PowerShell
+# Create your environment configuration
+# Open .env and add your MISTRAL_API_KEY
+echo "MISTRAL_API_KEY=your_actual_key_here" > .env
+````
+
+### 3\. Frontend Installation
+
+Navigate to the UI directory:
+
+```powershell
 cd ui
 npm install
-🚥 Running the Application
-You will need two terminal sessions:
+```
 
-Terminal A (Python API):
+## 🚥 running the Application
 
-PowerShell
+You must have **two separate terminals** running:
+
+#### Terminal A: AI Agent Service (Backend)
+
+```powershell
+# From the root directory
 uv run api.py
-Terminal B (Next.js Dashboard):
+```
 
-PowerShell
-cd ui
+#### Terminal B: Web Dashboard (Frontend)
+
+```powershell
+# From the /ui directory
 npm run dev
-Visit http://localhost:3000 to access the dashboard.
+```
 
-🛡️ Security Logic
-The Sentinel MCP server currently monitors for:
+The application will be available at: [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000)
 
-Hardcoded Passwords: Detects common sensitive strings.
+## 🛡️ Security Capabilities
 
-GDPR Compliance: Flags potential PII (Personally Identifiable Information).
+The system utilizes a custom MCP Server (`server.py`) to execute local security logic that never leaves your infrastructure:
 
-Pattern Matching: Uses regex to identify high-risk data leaks before they reach the LLM.
+  - **PII Detection:** Identifies potentially sensitive personal information.
+  - **Credential Scanning:** Detects hardcoded passwords and secrets using pattern matching.
+  - **Autonomous Reasoning:** The AI agent only triggers these tools when it perceives a potential compliance risk in the user's input.
+
+## 📁 Project Structure
+
+  - `/ui`: Next.js frontend application.
+  - `server.py`: The MCP Server defining security tools.
+  - `orchestrator.py`: The LangGraph agent logic.
+  - `api.py`: FastAPI server for frontend-backend communication.
+  - `.env`: Environment secrets (not tracked by git).
+
+```
+```
