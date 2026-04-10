@@ -32,7 +32,7 @@ Ensure you have uv installed (modern Python manager) and Node.js (v20+).
 
 2. Backend Setup
 
-```
+```powershell
 # Clone the repository
 git clone https://github.com/your-username/Sentinel-MCP.git
 cd Sentinel-MCP
