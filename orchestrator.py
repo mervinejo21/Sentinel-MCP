@@ -6,11 +6,14 @@ from mcp import ClientSession
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langgraph.prebuilt import create_react_agent
 from langchain_mistralai import ChatMistralAI
+from dotenv import load_dotenv
 
-async def main():
+load_dotenv()
+
+# We wrap the logic here so api.py can find it
+async def run_security_audit(user_input: str):
     if not os.getenv("MISTRAL_API_KEY"):
-        print("❌ Error: MISTRAL_API_KEY is missing.")
-        return
+        return "Error: MISTRAL_API_KEY is missing."
 
     server_params = StdioServerParameters(command="python", args=["server.py"])
 
@@ -18,7 +21,7 @@ async def main():
         async with ClientSession(read, write) as session:
             await session.initialize()
             
-            # 1. Load and Fix Tools (The Mistral 422 Fix)
+            # 1. Load and Fix Tools
             tools = await load_mcp_tools(session)
             for tool in tools:
                 tool.response_format = "content" 
@@ -27,19 +30,15 @@ async def main():
             model = ChatMistralAI(model="mistral-large-latest")
             agent = create_react_agent(model, tools)
 
-            # 3. Stream the output so we see thoughts + results
-            print("🤖 Sentinel is auditing...")
-            inputs = {"messages": [("user", "Check if 'My password is 123' is safe.")]}
+            # 3. Run the audit
+            inputs = {"messages": [("user", user_input)]}
+            response = await agent.ainvoke(inputs)
             
-            try:
-                async for chunk in agent.astream(inputs, stream_mode="values"):
-                    final_msg = chunk["messages"][-1]
-                
-                print("\n" + "="*30)
-                print(f"Final Result: {final_msg.content}")
-                print("="*30)
-            except Exception as e:
-                print(f"⚠️ API Error: {e}. (Mistral might be having a temporary outage).")
+            # Return only the final text message
+            return response["messages"][-1].content
 
+# This part keeps your manual testing working
 if __name__ == "__main__":
-    asyncio.run(main())
+    test_input = "Check if 'My password is 123' is safe."
+    result = asyncio.run(run_security_audit(test_input))
+    print(f"Test Result: {result}")
