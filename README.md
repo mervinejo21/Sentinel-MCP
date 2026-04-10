@@ -1,4 +1,5 @@
 🛡️ Sentinel-MCP
+
 Autonomous AI Compliance Auditor
 Sentinel-MCP is a full-stack AI application that leverages the Model Context Protocol (MCP) to audit sensitive data. It uses a LangGraph ReAct agent to autonomously decide when to trigger security scans via a custom-built MCP server, providing real-time compliance feedback through a modern Next.js dashboard.
 
