@@ -82,7 +82,7 @@ From the root directory of the project:
 
 ```powershell
 # Clone the repository
-git clone [https://github.com/your-username/Sentinel-MCP.git](https://github.com/your-username/Sentinel-MCP.git)
+git clone https://github.com/mervinejo21/Sentinel-MCP.git
 cd Sentinel-MCP
 
 # Create environment and install dependencies
