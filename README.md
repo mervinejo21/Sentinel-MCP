@@ -3,53 +3,6 @@
 
 **DRAFT.SAFE** is a full-stack AI application designed to solve the "Oops, I forgot to fill in the bracket" problem. It uses the **Model Context Protocol (MCP)** and **LangGraph** to autonomously scan AI-generated drafts for unfilled placeholders like `[Insert Name]` or `<Company>`, ensuring you never send an embarrassing template again.
 
-## ✨ The Problem solved
-When using AI to draft emails, it often leaves tags like `[City]` or `[Date]`. DRAFT.SAFE acts as an intelligent gatekeeper that:
-1. **Reads** your draft via a LangGraph Agent.
-2. **Reasons** whether the text contains template artifacts.
-3. **Validates** using a local MCP Security Server to pinpoint exactly what you missed.
-
-## 🚀 Technical Stack
-- **AI Orchestration:** [LangGraph](https://www.langchain.com/langgraph) (Python)
-- **Intelligence:** Mistral Large 3
-- **Protocol:** [Model Context Protocol (MCP)](https://modelcontextprotocol.io)
-- **Backend:** FastAPI (Python)
-- **Frontend:** Next.js 15 (Tailwind CSS v4, TypeScript)
-- **Theme:** Cyberpunk Obsidian & Electric Violet
-
-## 🏗️ Architecture
-- **Next.js Dashboard:** A split-screen UI with a "Thinking" animation and typewriter output.
-- **FastAPI Bridge:** Routes text drafts to the AI agent and streams back results.
-- **LangGraph Agent:** A ReAct agent that decides when to trigger the "Placeholder Scanner."
-- **DraftSafe MCP Server:** A specialized local tool that uses regex patterns to catch template tags before they are sent.
-
-## 🛠️ Installation & Setup
-
-### 1. Prerequisites
-- [uv](https://github.com/astral-sh/uv) (Fast Python Package Manager)
-- Node.js (v20+)
-- Mistral AI API Key
-
-### 2. Backend Setup
-```powershell
-# Clone and enter the repo
-git clone [https://github.com/your-username/Sentinel-MCP.git](https://github.com/your-username/Sentinel-MCP.git)
-cd Sentinel-MCP
-
-# Sync environment and dependencies
-uv sync
-
-# Add your Mistral API Key to .env
-echo "MISTRAL_API_KEY=your_key_here" > .env
-
-Here is the final, corrected, and polished README.md code. I have ensured the spacing is perfect so the headers render correctly, removed any escape characters (like backslashes), and updated the content to match your new DRAFT.SAFE theme.
-
-Markdown
-# 🛡️ DRAFT.SAFE
-### Autonomous AI Template Protection & Proofreading
-
-**DRAFT.SAFE** is a full-stack AI application designed to solve the "Oops, I forgot to fill in the bracket" problem. It uses the **Model Context Protocol (MCP)** and **LangGraph** to autonomously scan AI-generated drafts for unfilled placeholders like `[Insert Name]` or `<Company>`, ensuring you never send an embarrassing template again.
-
 ---
 
 ## 🚀 Technical Stack
@@ -82,7 +35,7 @@ From the root directory of the project:
 
 ```powershell
 # Clone the repository
-git clone https://github.com/mervinejo21/Sentinel-MCP.git
+git clone [https://github.com/your-username/Sentinel-MCP.git](https://github.com/your-username/Sentinel-MCP.git)
 cd Sentinel-MCP
 
 # Create environment and install dependencies
@@ -91,7 +44,6 @@ uv sync
 # Setup Environment Variables
 # Create a .env file and add your API key:
 echo "MISTRAL_API_KEY=your_api_key_here" > .env
-
 
 3. Frontend Installation
 In a new terminal, navigate to the UI directory:
