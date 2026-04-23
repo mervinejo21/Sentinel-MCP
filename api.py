@@ -17,13 +17,13 @@ app.add_middleware(
 )
 
 class AuditRequest(BaseModel):
-    content: str
+    text: str
 
 @app.post("/audit")
 async def audit_content(request: AuditRequest):
     try:
-        print(f"📥 Checking Draft: {request.content[:50]}...")
-        result = await run_security_audit(request.content)
+        print(f"📥 Checking Draft: {request.text[:50]}...")
+        result = await run_security_audit(request.text)
         return {"status": "success", "result": result}
     except Exception as e:
         print(f"❌ Error: {e}")
