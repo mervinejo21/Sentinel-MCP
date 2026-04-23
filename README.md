@@ -41,10 +41,18 @@
 
 ### AI Dashboard
 
-![DraftSafe Dashboard](./assets/dashboard.png)
+<p align="center">
+  <img src="./assets/dashboard.png" width="600" title="DraftSafe Dashboard">
+</p>
 
 ### Chrome Extension in Action
 
-![Extension Alert](./assets/gmail.png)
-![Extension Alert](./assets/linkedin.jpg)
-![Extension Alert](./assets/extension.png)
+<p align="center">
+  <img src="./assets/gmail.png" width="600" title="In Gmail">
+</p>
+<p align="center">
+  <img src="./assets/linkedin.jpg" width="600" title="In LinkedIn">
+</p>
+<p align="center">
+  <img src="./assets/extension.png" width="600" title="Extension in chrome">
+</p>
