@@ -45,4 +45,6 @@
 
 ### Chrome Extension in Action
 
-![Extension Alert](./assets/extension-alert.png)
+![Extension Alert](./assets/gmail.png)
+![Extension Alert](./assets/linkedin.jpg)
+![Extension Alert](./assets/extension.png)
